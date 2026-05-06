@@ -36,3 +36,35 @@ bdc58b90dcbd   pythonwebserver   0.02%     14.06MiB / 7.51GiB   0.18%     1.17kB
 ```
 
 
+## Portainer installieren 
+Um Portainer zu installieren habe ich zuerst `mkdir portainer` gemacht und dannach `cd portainer` (nicht unbedingt nötig).
+
+Danach habe ich `nano docker-compose.yml` mit folgendem Inhalt:
+
+```
+version: "3.8"
+
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer_with_volume
+    restart: always
+    ports:
+      - "9443:9443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /srv/portainer_data:/data
+```
+
+Dann muss man den Datenordner erstellen `sudo mkdir -p /srv/portainer_data`.
+Nachdem muss man den Container starten `docker compose up -d`
+Portrainer kann man dann auf `https://localhost:9443`.
+
+
+#### Warum braucht es dieses Persistent Volume ?
+
+Das Persistent Volume braucht es damit die Daten nicht im Container selbst gespeichert werden sondern auf dem Host-System.
+
+#### Was passiert mit den bereits erstellten Daten und Konfigurationen, wenn du den Container und das Image vollständig weglöscht und dann wieder installierst?
+
+Alle Daten im Container wären weg und Portainer startet wie frisch installiert. Neues Login etc.
