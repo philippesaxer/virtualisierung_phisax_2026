@@ -15,4 +15,13 @@ Zum Schluss habe ich alles gelöscht: Zuerst den Container mit `docker rm 1b5592
 
 Damit man bei Docker nicht mehr Sudo eingeben muss man eine Docker Gruppe erstellen `sudo groupadd docker`. Dannach den Benutzer zur Gruppe hinzufügen `sudo usermod -aG docker $USER`. Danach kann man das `docker run hello-world` ohne dem Sudo.
 
+
+## Container Image auf Docker hochladen
 [Docker-Repository](https://hub.docker.com/repository/docker/philippesaxer/pythonwebserver/general)
+Zuerst muss man den Account und Repo erstellen danach muss man: 
+
+`docker login`
+
+`docker tag <dockername> <benutzernamedockerhub>/<repository>:latest`
+
+`docker push <benutzernamedockerhub>/<repository>:latest`
