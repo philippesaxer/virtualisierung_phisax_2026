@@ -25,3 +25,14 @@ Zuerst muss man den Account und Repo erstellen danach muss man:
 `docker tag <dockername> <benutzernamedockerhub>/<repository>:latest`
 
 `docker push <benutzernamedockerhub>/<repository>:latest`
+
+
+## Container Performance
+Man muss den Pythonwebserver wieder ausführen mit `docker run --rm -p 8000:8081 --name pythonwebserver pythonwebserver` um verschiedene Informationen zum Docker und Performance zu sehen muss man `docker stats` eingeben und bekommt das als Output:
+
+```
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT    MEM %     NET I/O         BLOCK I/O     PIDS
+bdc58b90dcbd   pythonwebserver   0.02%     14.06MiB / 7.51GiB   0.18%     1.17kB / 126B   0B / 1.72MB   1
+```
+
+
