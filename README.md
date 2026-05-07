@@ -72,3 +72,10 @@ Alle Daten im Container wären weg und Portainer startet wie frisch installiert.
 
 ## Wichtige Docker Befehle
 `docker build -t getting-started .`
+
+
+##  Container-Monitoring mit cAdvisor, Prometheus und Grafana
+
+Um mich in Grafana anzumelden bin ich mit `nano docker-compose.yml` einfach ins File gegangen. Dort habe ich bei `GF_SECURITY_ADMIN_USER` und `GF_SECURITY_ADMIN_PASSWORD` die Daten gefunden. Es waren admin und admin und schlussendlich konnte ich das Passwort auf Localhost:3000 ändern.
+
+
