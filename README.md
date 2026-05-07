@@ -68,3 +68,7 @@ Das Persistent Volume braucht es damit die Daten nicht im Container selbst gespe
 #### Was passiert mit den bereits erstellten Daten und Konfigurationen, wenn du den Container und das Image vollständig weglöscht und dann wieder installierst?
 
 Alle Daten im Container wären weg und Portainer startet wie frisch installiert. Neues Login etc.
+
+
+## Wichtige Docker Befehle
+`docker build -t getting-started .`
