@@ -1,0 +1,32 @@
+services:
+  backend:
+    build: ./backend
+    networks:
+      - internal-net
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+    networks:
+      - front-net
+      - internal-net
+
+  test:
+    image: curlimages/curl:8.7.1
+    command: ["sleep", "infinity"]
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - internal-net
+
+networks:
+  front-net:
+    driver: bridge
+
+  internal-net:
+    driver: bridge
+    internal: true
