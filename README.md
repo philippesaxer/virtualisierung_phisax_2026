@@ -79,3 +79,19 @@ Alle Daten im Container wären weg und Portainer startet wie frisch installiert.
 Um mich in Grafana anzumelden bin ich mit `nano docker-compose.yml` einfach ins File gegangen. Dort habe ich bei `GF_SECURITY_ADMIN_USER` und `GF_SECURITY_ADMIN_PASSWORD` die Daten gefunden. Es waren admin und admin und schlussendlich konnte ich das Passwort auf Localhost:3000 ändern.
 
 
+## Mail Relay Server mit postfix
+
+Das habe ich in mein Docker-compose.yml geschrieben.
+
+```
+services:
+  postfix:
+    image: boky/postfix:latest
+    container_name: mail-relay
+    environment:
+      - RELAYHOST=[smtp.gmail.com]:587
+      - RELAYHOST_USERNAME=philippesaxer8@gmail.com
+      - RELAYHOST_PASSWORD=vwyv tuxb sitk nflk
+      - ALLOWED_SENDER_DOMAINS=gmail.com
+    restart: always
+```
