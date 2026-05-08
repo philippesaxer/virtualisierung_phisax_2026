@@ -72,7 +72,9 @@ Alle Daten im Container wären weg und Portainer startet wie frisch installiert.
 
 ## Wichtige Docker Befehle
 `docker build -t getting-started .`
-
+`docker run -d --name mein-container nginx`
+`docker compose up`
+`docker compose down`
 
 ##  Container-Monitoring mit cAdvisor, Prometheus und Grafana
 
