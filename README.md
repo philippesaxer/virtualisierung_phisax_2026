@@ -95,3 +95,37 @@ services:
       - ALLOWED_SENDER_DOMAINS=gmail.com
     restart: always
 ```
+
+
+## Container Netzwerk
+
+Im Test Container bin ich mit `docker compose exec test sh` gekommen und habe folgende Tests gemacht:
+
+```
+~ $ nslookup backend
+Server:         127.0.0.11
+Address:        127.0.0.11:53
+
+Non-authoritative answer:
+
+Non-authoritative answer:
+Name:   backend
+Address: 172.28.0.2
+
+~ $ curl http://backend:5000
+{"hostname":"e75a0a24219d","remote_addr":"172.28.0.4","service":"backend"}
+
+~ $ curl http://frontend
+{"hostname":"e75a0a24219d","remote_addr":"172.28.0.3","service":"backend"}
+~ $ nslookup frontend
+Server:         127.0.0.11
+Address:        127.0.0.11:53
+
+Non-authoritative answer:
+
+Non-authoritative answer:
+Name:   frontend
+Address: 172.28.0.3
+```
+
+Alle Test kamen korrekt heraus.
